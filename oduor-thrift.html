@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Oduor Thrift — Sneakers & Shoes, Karen / Langata Road</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --asphalt:#161614;
+  --asphalt2:#1F1E1B;
+  --paper:#F3EFE6;
+  --orange:#F2541B;
+  --orange-d:#C73D0E;
+  --green:#3D7A4D;
+  --yellow:#E8B400;
+  --muted:#9C988C;
+  --line:rgba(243,239,230,.12);
+  --line-soft:rgba(243,239,230,.07);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--asphalt);color:var(--paper);overflow-x:hidden}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 5%}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:300;
+  background:rgba(22,22,20,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  height:64px;
+}
+.nav-in{max-width:1280px;margin:0 auto;padding:0 5%;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Archivo Black',sans-serif;font-size:19px;letter-spacing:-.3px;color:var(--paper);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.logo .dot{width:9px;height:9px;background:var(--orange);border-radius:50%;display:inline-block}
+.nav-r{display:flex;gap:24px;align-items:center}
+.nav-r a{font-size:13.5px;color:var(--muted);text-decoration:none;transition:color .18s;font-weight:500}
+.nav-r a:hover{color:var(--paper)}
+.nav-wa{
+  background:#25D366;color:#06210f!important;padding:9px 16px;border-radius:3px;
+  font-weight:700!important;font-size:12.5px!important;display:flex;align-items:center;gap:6px;
+  text-transform:uppercase;letter-spacing:.03em;
+}
+.nav-wa:hover{background:#1ec45b!important}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.ham span{display:block;width:22px;height:2px;background:var(--paper)}
+.mob-menu{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--asphalt);z-index:290;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:18px 6%;font-size:16px;color:var(--paper);text-decoration:none;border-bottom:1px solid var(--line);font-weight:500}
+.mob-menu a.mm-wa{background:#25D366;color:#06210f;font-weight:700;display:flex;align-items:center;gap:8px}
+
+/* ── HERO ── */
+.hero{
+  padding:72px 5% 56px;position:relative;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(242,84,27,.16), transparent 45%),
+    var(--asphalt);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.tag-strip{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tag-pill{
+  font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+  border:1px solid var(--line);padding:5px 11px;border-radius:2px;color:var(--muted);
+}
+h1{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(40px,6vw,74px);
+  line-height:0.98;text-transform:uppercase;letter-spacing:-.5px;
+  margin-bottom:18px;color:var(--paper);
+}
+h1 span{color:var(--orange)}
+.hero-sub{font-size:15.5px;color:var(--muted);line-height:1.7;max-width:460px;margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;
+  padding:14px 26px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:transform .15s, background .2s;border:none;cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-orange{background:var(--orange);color:#1a0b04}
+.btn-orange:hover{background:#ff6a35}
+.btn-outline{background:transparent;color:var(--paper);border:1px solid var(--line)}
+.btn-outline:hover{border-color:var(--paper)}
+
+.hero-photo{position:relative}
+.hero-photo-frame{
+  border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  position:relative;background:var(--asphalt2);
+}
+.hero-photo-frame img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+.hero-stamp{
+  position:absolute;top:14px;right:14px;
+  background:var(--paper);color:var(--asphalt);
+  font-family:'Space Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;
+  padding:6px 11px;border-radius:2px;font-weight:700;
+  transform:rotate(3deg);
+}
+.hero-cap{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:10px;font-family:'Space Mono',monospace;font-size:11.5px;color:var(--muted);
+}
+
+/* ── LOCATION / CONTACT STRIP ── */
+.lstrip{
+  background:var(--asphalt2);border-bottom:1px solid var(--line);
+  padding:15px 5%;
+  display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:wrap;
+}
+.lstrip-item{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+.lstrip-item b{color:var(--paper);font-weight:600}
+.lstrip-icon{
+  width:26px;height:26px;border-radius:50%;background:rgba(242,84,27,.14);
+  display:flex;align-items:center;justify-content:center;color:var(--orange);flex-shrink:0;
+}
+
+/* ── SECTION HEADERS ── */
+.sec{padding:60px 5%}
+.sec-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px;flex-wrap:wrap;gap:10px}
+.sec-eyebrow{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:8px}
+h2{font-family:'Archivo Black',sans-serif;font-size:clamp(26px,3.4vw,40px);text-transform:uppercase;letter-spacing:-.3px;line-height:1.05}
+.sec-count{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted)}
+.sec-desc{color:var(--muted);font-size:14px;margin:10px 0 32px;max-width:560px}
+
+/* ── CATEGORY NAV PILLS ── */
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding:0 5%}
+.cat-btn{
+  font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.04em;
+  background:var(--asphalt2);border:1px solid var(--line);color:var(--muted);
+  padding:9px 16px;border-radius:3px;cursor:pointer;transition:.18s;text-decoration:none;display:inline-block;
+}
+.cat-btn:hover, .cat-btn.active{border-color:var(--orange);color:var(--paper);background:rgba(242,84,27,.1)}
+
+/* ── SHOE GRID ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.shoe-card{
+  background:var(--asphalt2);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  transition:transform .2s, border-color .2s;
+}
+.shoe-card:hover{transform:translateY(-4px);border-color:rgba(242,84,27,.4)}
+.shoe-img{height:190px;position:relative;overflow:hidden;background:#262420}
+.shoe-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.shoe-card:hover .shoe-img img{transform:scale(1.06)}
+.shoe-tag{
+  position:absolute;top:10px;left:10px;
+  font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.04em;
+  background:rgba(22,22,20,.85);color:var(--paper);padding:4px 9px;border-radius:2px;border:1px solid var(--line);
+}
+.shoe-cond{
+  position:absolute;top:10px;right:10px;
+  font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;
+  background:var(--green);color:#0c1f0f;padding:4px 8px;border-radius:2px;font-weight:700;
+}
+.shoe-body{padding:13px}
+.shoe-size{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.shoe-name{font-weight:700;font-size:14.5px;color:var(--paper);margin-bottom:10px;line-height:1.25}
+.shoe-btn{
+  width:100%;padding:9px;background:transparent;border:1px solid var(--line);color:var(--paper);
+  border-radius:3px;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  cursor:pointer;transition:.18s;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.shoe-btn:hover{background:#25D366;border-color:#25D366;color:#06210f}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--asphalt2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 5%}
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;max-width:1280px;margin:0 auto}
+.step{border-top:2px solid var(--orange);padding-top:18px}
+.step-num{font-family:'Space Mono',monospace;font-size:12px;color:var(--orange);margin-bottom:10px}
+.step h3{font-size:15.5px;font-weight:700;margin-bottom:7px;text-transform:uppercase;letter-spacing:.02em}
+.step p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ── CTA BANNER ── */
+.cta-band{
+  background:var(--orange);margin:0;padding:48px 5%;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.cta-band h2{color:#1a0b04;font-size:clamp(24px,3vw,36px)}
+.cta-band p{color:#3a1d0d;font-size:14px;margin-top:6px;font-weight:500}
+.cta-band .btn-outline{border-color:#1a0b04;color:#1a0b04}
+.cta-band .btn-outline:hover{background:#1a0b04;color:var(--orange)}
+
+/* ── STICKY MOBILE BAR ── */
+.mob-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;
+  background:var(--asphalt2);border-top:1px solid var(--line);padding:11px 5%;gap:9px;
+}
+.mob-bar a{
+  flex:1;text-align:center;text-decoration:none;padding:13px 0;border-radius:3px;
+  font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.mb-wa{background:#25D366;color:#06210f}
+.mb-loc{background:transparent;border:1px solid var(--line);color:var(--paper)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--asphalt);padding:40px 5% 32px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;
+}
+.f-logo{font-family:'Archivo Black',sans-serif;font-size:18px;text-transform:uppercase;margin-bottom:8px}
+.f-logo span{color:var(--orange)}
+footer p{font-size:12.5px;color:var(--muted);max-width:280px;line-height:1.6}
+.f-col{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);line-height:2}
+.f-col a{color:var(--paper);text-decoration:none}
+.f-col a:hover{color:var(--orange)}
+
+.ico{display:inline-block;vertical-align:middle;flex-shrink:0}
+
+/* ── MOBILE ── */
+@media(max-width:860px){
+  .nav-r{display:none}
+  .ham{display:flex}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero{padding:48px 5% 40px}
+  h1{font-size:38px}
+  .lstrip{flex-direction:column;gap:12px;text-align:center}
+  .cat-nav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+  .shoe-img{height:140px}
+  .shoe-name{font-size:13px}
+  .how{padding:44px 5%}
+  .cta-band{flex-direction:column;align-items:flex-start;padding:36px 5%}
+  .mob-bar{display:flex}
+  footer{padding-bottom:90px}
+}
+@media(max-width:420px){
+  h1{font-size:30px}
+  .grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="dot"></span>Oduor Thrift</div>
+    <div class="nav-r">
+      <a href="#sneakers">Sneakers</a>
+      <a href="#boots">Ladies</a>
+      <a href="#vans">Vans</a>
+      <a href="#kids">Kids</a>
+      <a href="#mens">Men's</a>
+      <a href="#sport">Sport</a>
+      <a href="https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20a%20pair%20of%20shoes." target="_blank" class="nav-wa">
+        <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <button class="ham" aria-label="Menu" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mm">
+  <a href="#sneakers" onclick="document.getElementById('mm').classList.remove('open')">Sneakers</a>
+  <a href="#boots" onclick="document.getElementById('mm').classList.remove('open')">Ladies Boots</a>
+  <a href="#vans" onclick="document.getElementById('mm').classList.remove('open')">Vans</a>
+  <a href="#kids" onclick="document.getElementById('mm').classList.remove('open')">Kids Shoes</a>
+  <a href="#mens" onclick="document.getElementById('mm').classList.remove('open')">Men's Casual</a>
+  <a href="#sport" onclick="document.getElementById('mm').classList.remove('open')">Sport Shoes</a>
+  <a href="https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20a%20pair%20of%20shoes." target="_blank" class="mm-wa">Chat on WhatsApp</a>
+</div>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="tag-strip">
+        <span class="tag-pill">Thrift &amp; New</span>
+        <span class="tag-pill">Roadside, Karen</span>
+        <span class="tag-pill">Nairobi Delivery</span>
+      </div>
+      <h1>Step into<br/>the <span>drop.</span></h1>
+      <p class="hero-sub">Sneakers, boots, vans, kicks for the kids — handpicked and sold roadside on Langata Road, Karen. No shop, no markup games, just clean pairs at street prices.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20a%20pair%20of%20shoes." target="_blank" class="btn btn-orange">
+          <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="#sneakers" class="btn btn-outline">Browse the drop</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-frame">
+        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=82&auto=format&fit=crop" alt="Featured sneaker pair, street style" loading="eager"/>
+        <div class="hero-stamp">Today's pick</div>
+      </div>
+      <div class="hero-cap">
+        <span>Heritage sneaker · Clean condition</span>
+        <span>Inquire on WhatsApp</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lstrip">
+  <div class="lstrip-item">
+    <span class="lstrip-icon">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </span>
+    Find us at <b>Karen, Langata Road</b> &mdash; roadside stand
+  </div>
+  <div class="lstrip-item">
+    <span class="lstrip-icon">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17a4 4 0 004 4h9a5 5 0 001-9.9V11a5 5 0 00-9.6-1.8A4 4 0 003 13z"/></svg>
+    </span>
+    <b>Delivery available</b> across Nairobi
+  </div>
+  <div class="lstrip-item">
+    <span class="lstrip-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </span>
+    <b>0794 045 525</b> &mdash; call or WhatsApp to order
+  </div>
+</div>
+
+<div class="cat-nav">
+  <a href="#sneakers" class="cat-btn">Sneakers</a>
+  <a href="#boots" class="cat-btn">Ladies Boots</a>
+  <a href="#vans" class="cat-btn">Vans</a>
+  <a href="#kids" class="cat-btn">Kids Shoes</a>
+  <a href="#mens" class="cat-btn">Men's Casual</a>
+  <a href="#sport" class="cat-btn">Sport Shoes</a>
+</div>
+
+
+<section class="sec" id="sneakers">
+  <div class="sec-hd">
+    <div>
+      <p class="sec-eyebrow">Drop 01</p>
+      <h2>Sneakers</h2>
+    </div>
+    <span class="sec-count">12 pairs available</span>
+  </div>
+  <p class="sec-desc">Heritage runners and street sneakers — the bread and butter of the stand. New stock every week.</p>
+  <div class="grid">
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&q=80&auto=format&fit=crop" alt="Classic White Runner, Sneakers, size UK 3" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 3</p>
+        <p class="shoe-name">Classic White Runner</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Classic%20White%20Runner.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=500&q=80&auto=format&fit=crop" alt="Retro Court Sneaker, Sneakers, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Retro Court Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Retro%20Court%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80&auto=format&fit=crop" alt="Old-School Skate Shoe, Sneakers, size UK 5" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5</p>
+        <p class="shoe-name">Old-School Skate Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Old-School%20Skate%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&q=80&auto=format&fit=crop" alt="Suede Panel Trainer, Sneakers, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Suede Panel Trainer</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Suede%20Panel%20Trainer.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80&auto=format&fit=crop" alt="Canvas Low-Top, Sneakers, size UK 9" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 9</p>
+        <p class="shoe-name">Canvas Low-Top</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Canvas%20Low-Top.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=500&q=80&auto=format&fit=crop" alt="Chunky Dad Sneaker, Sneakers, size UK 3" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 3</p>
+        <p class="shoe-name">Chunky Dad Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Chunky%20Dad%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1465479423260-c4afc24172c6?w=500&q=80&auto=format&fit=crop" alt="Mesh Runner, Sneakers, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Mesh Runner</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Mesh%20Runner.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500&q=80&auto=format&fit=crop" alt="Two-Tone Trainer, Sneakers, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Two-Tone Trainer</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Two-Tone%20Trainer.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&q=80&auto=format&fit=crop" alt="Vintage Tennis Shoe, Sneakers, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Vintage Tennis Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Vintage%20Tennis%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=500&q=80&auto=format&fit=crop" alt="Leather Court Classic, Sneakers, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Leather Court Classic</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Leather%20Court%20Classic.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=500&q=80&auto=format&fit=crop" alt="Knit Sock Sneaker, Sneakers, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Knit Sock Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Knit%20Sock%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1517260911058-21d6e5be7bbb?w=500&q=80&auto=format&fit=crop" alt="Street Low-Top, Sneakers, size UK 7" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sneakers</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 7</p>
+        <p class="shoe-name">Street Low-Top</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Street%20Low-Top.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="boots">
+  <div class="sec-hd">
+    <div>
+      <p class="sec-eyebrow">Drop 02</p>
+      <h2>Ladies Boots</h2>
+    </div>
+    <span class="sec-count">8 pairs available</span>
+  </div>
+  <p class="sec-desc">Ankle boots, chelsea styles, and statement heels for the ladies — built for Nairobi weather.</p>
+  <div class="grid">
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&q=80&auto=format&fit=crop" alt="Chelsea Ankle Boot, Ladies Boots, size UK 5" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5</p>
+        <p class="shoe-name">Chelsea Ankle Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Chelsea%20Ankle%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1605733160314-4b8f08fbd1a3?w=500&q=80&auto=format&fit=crop" alt="Block Heel Boot, Ladies Boots, size UK 8" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 8</p>
+        <p class="shoe-name">Block Heel Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Block%20Heel%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1605812860427-4024433a70fd?w=500&q=80&auto=format&fit=crop" alt="Suede Knee Boot, Ladies Boots, size UK 5" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5</p>
+        <p class="shoe-name">Suede Knee Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Suede%20Knee%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?w=500&q=80&auto=format&fit=crop" alt="Lace-Up Combat Boot, Ladies Boots, size UK 8" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 8</p>
+        <p class="shoe-name">Lace-Up Combat Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Lace-Up%20Combat%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500&q=80&auto=format&fit=crop" alt="Pointed Toe Bootie, Ladies Boots, size UK 4" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 4</p>
+        <p class="shoe-name">Pointed Toe Bootie</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Pointed%20Toe%20Bootie.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&q=80&auto=format&fit=crop" alt="Flat Ankle Boot, Ladies Boots, size UK 4" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 4</p>
+        <p class="shoe-name">Flat Ankle Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Flat%20Ankle%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1605733160314-4b8f08fbd1a3?w=500&q=80&auto=format&fit=crop" alt="Platform Boot, Ladies Boots, size UK 8" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 8</p>
+        <p class="shoe-name">Platform Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Platform%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500&q=80&auto=format&fit=crop" alt="Western-Style Boot, Ladies Boots, size UK 3" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Ladies Boots</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 3</p>
+        <p class="shoe-name">Western-Style Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Western-Style%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="vans">
+  <div class="sec-hd">
+    <div>
+      <p class="sec-eyebrow">Drop 03</p>
+      <h2>Vans</h2>
+    </div>
+    <span class="sec-count">7 pairs available</span>
+  </div>
+  <p class="sec-desc">Classic checkerboard slip-ons and skate lows. The staple thrift favourite.</p>
+  <div class="grid">
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500&q=80&auto=format&fit=crop" alt="Checkerboard Slip-On, Vans, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Checkerboard Slip-On</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Checkerboard%20Slip-On.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500&q=80&auto=format&fit=crop" alt="Classic Skate Low, Vans, size UK 9" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 9</p>
+        <p class="shoe-name">Classic Skate Low</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Classic%20Skate%20Low.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1465479423260-c4afc24172c6?w=500&q=80&auto=format&fit=crop" alt="Old Skool Style, Vans, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Old Skool Style</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Old%20Skool%20Style.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1517260911058-21d6e5be7bbb?w=500&q=80&auto=format&fit=crop" alt="Canvas Slip-On, Vans, size UK 8" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 8</p>
+        <p class="shoe-name">Canvas Slip-On</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Canvas%20Slip-On.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500&q=80&auto=format&fit=crop" alt="Black Skate Low, Vans, size UK 4" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 4</p>
+        <p class="shoe-name">Black Skate Low</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Black%20Skate%20Low.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&q=80&auto=format&fit=crop" alt="Era Lace-Up, Vans, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Era Lace-Up</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Era%20Lace-Up.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80&auto=format&fit=crop" alt="Authentic Low-Top, Vans, size UK 4" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Vans</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 4</p>
+        <p class="shoe-name">Authentic Low-Top</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Authentic%20Low-Top.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="kids">
+  <div class="sec-hd">
+    <div>
+      <p class="sec-eyebrow">Drop 04</p>
+      <h2>Kids Shoes</h2>
+    </div>
+    <span class="sec-count">8 pairs available</span>
+  </div>
+  <p class="sec-desc">Durable, playground-ready pairs for school and weekends — sized for toddlers to teens.</p>
+  <div class="grid">
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=500&q=80&auto=format&fit=crop" alt="Kids Velcro Sneaker, Kids Shoes, size UK 9 (Kids)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 9 (Kids)</p>
+        <p class="shoe-name">Kids Velcro Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Kids%20Velcro%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1576766125003-acaae3233f7e?w=500&q=80&auto=format&fit=crop" alt="Toddler Light-Up Shoe, Kids Shoes, size UK 13 (Kids)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 13 (Kids)</p>
+        <p class="shoe-name">Toddler Light-Up Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Toddler%20Light-Up%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?w=500&q=80&auto=format&fit=crop" alt="Junior School Shoe, Kids Shoes, size UK 5 (Youth)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5 (Youth)</p>
+        <p class="shoe-name">Junior School Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Junior%20School%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=500&q=80&auto=format&fit=crop" alt="Kids Canvas Low-Top, Kids Shoes, size UK 11 (Kids)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11 (Kids)</p>
+        <p class="shoe-name">Kids Canvas Low-Top</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Kids%20Canvas%20Low-Top.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1576766125003-acaae3233f7e?w=500&q=80&auto=format&fit=crop" alt="Toddler Strap Sneaker, Kids Shoes, size UK 13 (Kids)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 13 (Kids)</p>
+        <p class="shoe-name">Toddler Strap Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Toddler%20Strap%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?w=500&q=80&auto=format&fit=crop" alt="Kids Sport Trainer, Kids Shoes, size UK 5 (Youth)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5 (Youth)</p>
+        <p class="shoe-name">Kids Sport Trainer</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Kids%20Sport%20Trainer.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=500&q=80&auto=format&fit=crop" alt="Junior Slip-On, Kids Shoes, size UK 5 (Youth)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5 (Youth)</p>
+        <p class="shoe-name">Junior Slip-On</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Junior%20Slip-On.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1576766125003-acaae3233f7e?w=500&q=80&auto=format&fit=crop" alt="Kids Hi-Top Sneaker, Kids Shoes, size UK 3 (Youth)" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Kids Shoes</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 3 (Youth)</p>
+        <p class="shoe-name">Kids Hi-Top Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Kids%20Hi-Top%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="mens">
+  <div class="sec-hd">
+    <div>
+      <p class="sec-eyebrow">Drop 05</p>
+      <h2>Men's Casual</h2>
+    </div>
+    <span class="sec-count">8 pairs available</span>
+  </div>
+  <p class="sec-desc">Loafers, derbies, and clean casual leather for the office or a Sunday out.</p>
+  <div class="grid">
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1614253429340-98120bd6d753?w=500&q=80&auto=format&fit=crop" alt="Leather Loafer, Men's Casual, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Leather Loafer</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Leather%20Loafer.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=500&q=80&auto=format&fit=crop" alt="Brogue Derby Shoe, Men's Casual, size UK 5" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5</p>
+        <p class="shoe-name">Brogue Derby Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Brogue%20Derby%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1614253429340-98120bd6d753?w=500&q=80&auto=format&fit=crop" alt="Slip-On Moccasin, Men's Casual, size UK 9" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 9</p>
+        <p class="shoe-name">Slip-On Moccasin</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Slip-On%20Moccasin.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=500&q=80&auto=format&fit=crop" alt="Classic Oxford, Men's Casual, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Classic Oxford</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Classic%20Oxford.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1614253429340-98120bd6d753?w=500&q=80&auto=format&fit=crop" alt="Suede Desert Boot, Men's Casual, size UK 8" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 8</p>
+        <p class="shoe-name">Suede Desert Boot</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Suede%20Desert%20Boot.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=500&q=80&auto=format&fit=crop" alt="Penny Loafer, Men's Casual, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Penny Loafer</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Penny%20Loafer.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1614253429340-98120bd6d753?w=500&q=80&auto=format&fit=crop" alt="Casual Derby, Men's Casual, size UK 8" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 8</p>
+        <p class="shoe-name">Casual Derby</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Casual%20Derby.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=500&q=80&auto=format&fit=crop" alt="Driving Moccasin, Men's Casual, size UK 7" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Men's Casual</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 7</p>
+        <p class="shoe-name">Driving Moccasin</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Driving%20Moccasin.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="sport">
+  <div class="sec-hd">
+    <div>
+      <p class="sec-eyebrow">Drop 06</p>
+      <h2>Sport Shoes</h2>
+    </div>
+    <span class="sec-count">7 pairs available</span>
+  </div>
+  <p class="sec-desc">Running and training shoes for the gym, the pitch, or the morning jog.</p>
+  <div class="grid">
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&q=80&auto=format&fit=crop" alt="Lightweight Running Shoe, Sport Shoes, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Mint</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Lightweight Running Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Lightweight%20Running%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80&auto=format&fit=crop" alt="Training Cross-Trainer, Sport Shoes, size UK 6" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 6</p>
+        <p class="shoe-name">Training Cross-Trainer</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Training%20Cross-Trainer.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=500&q=80&auto=format&fit=crop" alt="Mesh Running Sneaker, Sport Shoes, size UK 9" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 9</p>
+        <p class="shoe-name">Mesh Running Sneaker</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Mesh%20Running%20Sneaker.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1517260911058-21d6e5be7bbb?w=500&q=80&auto=format&fit=crop" alt="Court Basketball Shoe, Sport Shoes, size UK 5" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Like new</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5</p>
+        <p class="shoe-name">Court Basketball Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Court%20Basketball%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&q=80&auto=format&fit=crop" alt="Trail Running Shoe, Sport Shoes, size UK 5" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 5</p>
+        <p class="shoe-name">Trail Running Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Trail%20Running%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80&auto=format&fit=crop" alt="Gym Training Shoe, Sport Shoes, size UK 11" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Clean</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 11</p>
+        <p class="shoe-name">Gym Training Shoe</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Gym%20Training%20Shoe.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="shoe-card">
+      <div class="shoe-img">
+        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=500&q=80&auto=format&fit=crop" alt="Performance Runner, Sport Shoes, size UK 9" loading="lazy" onerror="this.parentElement.style.background='#262420'"/>
+        <span class="shoe-tag">Sport Shoes</span>
+        <span class="shoe-cond">Lightly used</span>
+      </div>
+      <div class="shoe-body">
+        <p class="shoe-size">Size UK 9</p>
+        <p class="shoe-name">Performance Runner</p>
+        <button class="shoe-btn" onclick="window.open('https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20the%20Performance%20Runner.','_blank')">
+          <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <p class="sec-eyebrow">How to cop a pair</p>
+    <h2 style="margin-bottom:36px">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Browse the drop</h3>
+        <p>Scroll the categories above and screenshot or note the shoe you like.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>WhatsApp us</h3>
+        <p>Tap "Inquire on WhatsApp" or message 0794 045 525 directly with the shoe name.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Confirm price & size</h3>
+        <p>We'll confirm availability, exact size, and price right there on chat.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Pick up or get delivery</h3>
+        <p>Grab it at our Karen / Langata Road stand, or get it delivered anywhere in Nairobi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div>
+    <h2>Found your pair?</h2>
+    <p>Message us the shoe name and size — we'll sort the rest on WhatsApp.</p>
+  </div>
+  <div class="hero-cta">
+    <a href="https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20a%20pair%20of%20shoes." target="_blank" class="btn" style="background:#1a0b04;color:var(--orange)">
+      <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Message Now
+    </a>
+    <a href="#sneakers" class="btn btn-outline">Back to top</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="f-logo">Oduor<span>.</span>Thrift</div>
+    <p>Roadside sneaker and shoe stand on Langata Road, Karen. New drops weekly — sneakers, boots, vans, kids shoes, men's casual & sport.</p>
+  </div>
+  <div class="f-col">
+    <div>Karen, Langata Road</div>
+    <div>Roadside stand &middot; Nairobi</div>
+    <div style="margin-top:8px"><a href="tel:0794045525">0794 045 525</a></div>
+    <div><a href="https://wa.me/254794045525" target="_blank">WhatsApp us</a></div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a href="https://wa.me/254794045525?text=Hi%20Oduor%20Thrift!%20I%27m%20interested%20in%20a%20pair%20of%20shoes." target="_blank" class="mb-wa">
+    <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="https://maps.google.com/?q=Karen+Langata+Road+Nairobi" target="_blank" class="mb-loc">
+    <svg class="ico" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Find Us
+  </a>
+</div>
+
+
+</body>
+</html>
